@@ -1,0 +1,35 @@
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.nav-item {
+    --bs-nav-link-color: #c9c8c7;
+    --bs-nav-link-hover-color: #c9c8c7;
+    /* padding: .5rem;  */
+}
+
+#project-dropdown-button {
+    outline: none;
+    box-shadow: none;
+}
+
+#navbarNavDropdown {
+    text-align: center;
+}
+
+@media (max-width: 575.98px) {
+    .navbar-brand {
+      font-size:20px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+}
+
+.navbar-collapse.show  {
+    display: inline-block;
+}
