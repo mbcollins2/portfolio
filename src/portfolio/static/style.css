@@ -1,3 +1,26 @@
+body {
+    font-family: 'Inconsolata', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
+    /* font-family: 'Space Mono', sans-serif; */
+    /* font-family: 'Inter', sans-serif; */
+    /* font-family: 'DM Sans', sans-serif; */
+    /* font-family: 'Space Grotesk', sans-serif; */
+    /* font-family: 'Work Sans', sans-serif; */
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+body .content {
+    flex: 1;
+}
+    
+/* footer {
+    padding-top: 12px;
+    padding-bottom: 12px;
+} */
+
 .navbar-toggler,
 .navbar-toggler:focus,
 .navbar-toggler:active,
