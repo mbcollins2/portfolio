@@ -17,14 +17,49 @@
             <h2 class="display-5 mb-1">Portfolio Website</h2>
             <p class="blog-post-meta">October 2024</p>
             
-            <h4 class="">Overview</h4>
+            <h3 class="">Overview</h4>
             <p>
               For this project, the technologies listed were leveraged
               primarily due to familiarity with Python and some previous experience
               with Bootstrap.
             </p>
             <p>
-              Work in progress...
+              The purpose of the site was to have a place to organize and write about
+              other projects that I have worked on.
+            </p>
+            <p>&nbsp;</p>
+            <h3 class="">Development</h4>
+            <p>
+              This website was initially developed over the course of a weekend. VSCode
+              code was used for the IDE. 
+            </p>
+            <p>
+              The backend of the site is Python and Flask, with Gunicorn being used
+              when the site is served in production.
+            </p>
+            <p>
+              The website code is mostly HTML, CSS, and Bootstrap 5. Jinja templates are 
+              used, mostly to extend base versions of the layout, nav bar, and footer.
+            </p>
+            <p>&nbsp;</p>
+            <h3 class="">Automated Deployments</h4>
+            <p>
+              For serving the site, automated deployments are set up between Github and
+              Railway.
+            </p>
+            <p>
+              The site follows semantic versioning. Most changes are tested in 
+              the local environment on a Flask development server.
+            </p>
+            <p>
+              When a new version is ready for testing, it is merged to the develop branch. 
+              This triggers an automated deployment to a dev server for final testing. Once this
+              testing is complete, a release branch for the new version is created, the release
+              tag is applied, and the release is merged with the master branch. 
+            </p>
+            <p>
+              When the release is merged into the master branch, it triggers another automated
+              deployment to push the changes to the website.
             </p>
 
           </article>
@@ -35,14 +70,14 @@
         <div class="col-md-4">
           <div class="position-sticky" style="top: 2rem;">
             <div class="p-4 mb-3 bg-body-tertiary rounded">
-              <h4 class="fst-italic">Technologies</h4>
+              <h4 class="">Technologies</h4>
               <ul class="list-group">
                 <li class="list-group-item">Python</li>
                 <li class="list-group-item">Flask</li>
-                <li class="list-group-item">HTML | CSS | Boostrap</li>
                 <li class="list-group-item">Gunicorn</li>
-                <li class="list-group-item">Railway</li>
+                <li class="list-group-item">HTML | CSS | Boostrap</li>
                 <li class="list-group-item">Github</li>
+                <li class="list-group-item">Railway</li>
               </ul>
             </div> 
           </div>
