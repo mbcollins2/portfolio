@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <!-- Custom Images -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    <symbol id="chevron-right" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+    </symbol>
+  </svg>
+
+  <!-- Content -->
+  <div class="content">
+
+    <div class="container px-4 py-5" id="project-cards">
+      <h2 class="pb-2 border-bottom">Projects</h2>
+
+      <div class="row mb-2 py-4">
+
+        <div class="col-md-6">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static project-box">
+              <strong class="d-inline-block mb-2 text-primary-emphasis">GenAI</strong>
+              <h3 class="mb-0">Fantasy Football Power Rankings</h3>
+              <div class="mb-1 text-body-secondary">2024</div>
+              <p class="card-text mb-auto">Leveraging a GenAI RAG architecture to generate weekly fantasy football power rankings.</p>
+              <p class="mb-auto">&nbsp;</p>
+              <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+                Continue reading
+                <svg class="bi"><use xlink:href="#chevron-right"/></svg>
+              </a>
+            </div>
+            <div class="col-auto d-block d-lg-block">
+              <img style="object-fit: cover; width: 100px; height: 100%;" src="../../static/images/project_cards/genai_power_rankings.png"/>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static project-box">
+              <strong class="d-inline-block mb-2 text-success-emphasis">Web Development</strong>
+              <h3 class="mb-0">Portfolio Website</h3>
+              <div class="mb-1 text-body-secondary">2024</div>
+              <p class="mb-auto">Post discussing the architecture, development, and deployment of this site.</p>
+              <p class="mb-auto">&nbsp;</p>
+              <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+                Continue reading
+                <svg class="bi"><use xlink:href="#chevron-right"/></svg>
+              </a>
+            </div>
+            <div class="col-auto d-block d-lg-block">
+              <img style="object-fit: cover; width: 100px; height: 100%;" src="../../static/images/project_cards/portfolio_site_sm.png"/>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+{% endblock content %}
