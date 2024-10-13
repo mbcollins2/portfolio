@@ -58,6 +58,10 @@ body .content {
     display: inline-block;
 }
 
+.hero-text-link:hover {
+    text-decoration: underline;
+}
+
 
 /* Project Cards */
 .feature-icon {
@@ -108,4 +112,13 @@ body .content {
 .project-box {
     /* background: #3B3A49; */
     background: #2d2c38;
+}
+
+.blog-post {
+    margin-bottom: 4rem;
+}
+
+.blog-post-meta {
+    margin-bottom: 1.25rem;
+    color: #727272;
 }

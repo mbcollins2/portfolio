@@ -6,14 +6,26 @@ cache = Cache(app, config={'CACHE_TYPE': 'SimpleCache'})
 
 
 @app.route("/")
-@cache.cached(timeout=60)
+# @cache.cached(timeout=60)
 def home():
     return render_template("pages/home.html")
 
 
 @app.route("/projects")
+# @cache.cached(timeout=60)
 def projects():
     return render_template("pages/projects.html")
+
+@app.route("/projects/portfolio-website")
+# @cache.cached(timeout=60)
+def project_page():
+    return render_template("pages/projects/portfolio_website.html")
+
+# TODO - set up slugs for project page templates
+# @app.route("/projects/<slug>")
+# # @cache.cached(timeout=60)
+# def project_page(slug):
+#     return render_template("pages/projects/portfolio_website.html", slug=slug)
 
 
 if __name__ == "__main__":
