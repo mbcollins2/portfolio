@@ -3,7 +3,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: #1e1d2a;
+    background: #1E1D2A;
 }
 
 body .content {
@@ -119,6 +119,12 @@ footer .release-link:hover::after {
 .project-box {
     /* background: #3B3A49; */
     background: #2d2c38;
+}
+.project-box-outer {
+    transition: tranform ease 250ms;
+}
+.project-box-outer:hover {
+    transform: translate(0px, -2px);
 }
 
 .blog-post {
