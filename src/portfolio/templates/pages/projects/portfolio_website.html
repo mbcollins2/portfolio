@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
   <!-- Content -->
   <div class="content">
     <div class="container px-4 py-5">
@@ -8,7 +9,6 @@
 
         <!-- Project Details -->
         <div class="col-md-8">
-
           <h3 class="pb-4 mb-4 fst-italic border-bottom text-success-emphasis">
             Web Development
           </h3>
@@ -25,14 +25,14 @@
             </p>
             
             <h3 class="">Overview</h4>
+              <p>
+                The purpose of this site is to have a place to organize and write about
+                other projects that I have worked on and to brush up on web development.
+              </p>
             <p>
               For this project, the technologies listed were leveraged
               primarily due to familiarity with Python and some previous experience
               with Bootstrap.
-            </p>
-            <p>
-              The purpose of the site was to have a place to organize and write about
-              other projects that I have worked on.
             </p>
             <p>&nbsp;</p>
             <h3 class="">Development</h4>
@@ -46,7 +46,7 @@
             </p>
             <p>
               The website code is mostly HTML, CSS, and Bootstrap 5. Jinja templates are 
-              used, mostly to extend base versions of the layout, nav bar, and footer.
+              used, mostly to extend base versions of the layout, navigation bar, and footer.
             </p>
             <p>&nbsp;</p>
             <h3 class="">Automated Deployments</h4>
@@ -60,13 +60,19 @@
             </p>
             <p>
               When a new version is ready for testing, it is merged to the develop branch. 
-              This triggers an automated deployment to a dev server for final testing. Once this
-              testing is complete, a release branch for the new version is created, the release
-              tag is applied, and the release is merged with the master branch. 
+              This triggers an automated deployment to a dev server for final testing. The dev
+              environment is a serverless deployment, so the server will spin up when it gets a 
+              request, and spin down after a short period without any traffic. This setup ensures 
+              that the dev server is available when needed, but that it is not incurring costs
+              during periods when there is no active development on the site. 
+            </p>
+            <p>
+              Once this testing is complete, a release branch for the new version is created, 
+              the release tag is applied, and the release is merged with the master branch. 
             </p>
             <p>
               When the release is merged into the master branch, it triggers another automated
-              deployment to push the changes to the website.
+              deployment to push the changes to the production server.
             </p>
 
           </article>
@@ -76,13 +82,21 @@
         <!-- Project Technologies -->
         <div class="col-md-4">
           <div class="position-sticky" style="top: 2rem;">
+            <a href="/projects" class="icon-link gap-1 mb-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+              </svg>
+              back to projects
+            </a>
+            <br></br>
             <div class="p-4 mb-3 bg-body-tertiary rounded">
               <h4 class="">Technologies</h4>
               <ul class="list-group">
                 <li class="list-group-item">Python</li>
                 <li class="list-group-item">Flask</li>
                 <li class="list-group-item">Gunicorn</li>
-                <li class="list-group-item">HTML | CSS | Boostrap</li>
+                <li class="list-group-item">HTML | CSS</li>
+                <li class="list-group-item">Bootstrap</li>
                 <li class="list-group-item">Github</li>
                 <li class="list-group-item">Railway</li>
               </ul>
