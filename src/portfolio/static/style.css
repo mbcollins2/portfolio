@@ -118,13 +118,14 @@ footer .release-link:hover::after {
 
 .project-box {
     /* background: #3B3A49; */
-    background: #2d2c38;
+    /* background: #2d2c38; */
+    /* background: #39374F; */
+    background: #2C2A3D;
+    transition: tranform ease 300ms;
 }
-.project-box-outer {
-    transition: tranform ease 250ms;
-}
-.project-box-outer:hover {
-    transform: translate(0px, -2px);
+.project-box:hover {
+    /* background: #2C2A3D; */
+    background: #39374F;
 }
 
 .blog-post {
