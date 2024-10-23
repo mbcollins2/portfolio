@@ -3,7 +3,7 @@
 "status": "Active"
 "category": "Web Development"
 "publish_month_year": "October 2024"
-"project_summary": "Short summary text here"
+"project_summary": "Post discussing the architecture, development, and deployment of this site."
 "technologies": [
     "Python",
     "Flask",
@@ -13,7 +13,8 @@
     "Github",
     "Railway"
 ]
-"preview_image": "url to image here"
+"github_link": "https://github.com/mbcollins2/portfolio"
+"medium_link": ""
 ---
 
 

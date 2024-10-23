@@ -14,16 +14,8 @@ with open("pyproject.toml", "rb") as f:
 
 
 PROJECTS_DIR = "src/portfolio/templates/pages/projects"
+PROJECTS_IMAGE_DIR = "../../static/images/project_cards"
 
-
-app = Flask(__name__)
-# cache = Cache(app, config={"CACHE_TYPE": "SimpleCache"})
-
-
-# TODO 
-# load all projects in project directory
-# parse all project metadata into a json with a name for the slug and then the metadata and content
-# order descending by date
 
 project_data = dict()
 for project_filename in os.listdir(PROJECTS_DIR):
@@ -37,15 +29,14 @@ for project_filename in os.listdir(PROJECTS_DIR):
 
         project_data[project_slug]["project_metadata"] = project_file.metadata
         project_data[project_slug]["project_content"] = markdown.markdown(project_file.content)
-
-# print("project_data", project_data)
+        project_data[project_slug]["project_image"] = os.path.join(PROJECTS_IMAGE_DIR, f"{project_filename[:-3]}.png")
 
 project_list = [{"title": x, "date": project_data[x]['project_metadata']['publish_month_year']} for x in project_data]
 sorted_project_list = [x['title'] for x in sorted(project_list, key=lambda x: datetime.strptime(x['date'], '%B %Y'), reverse=True)]
 
-# print("list", project_list)
-# print("list", [x['title'] for x in sorted(project_list, key=lambda x: datetime.strptime(x['date'], '%B %Y'), reverse=True)])
 
+app = Flask(__name__)
+# cache = Cache(app, config={"CACHE_TYPE": "SimpleCache"})
 
 
 @app.context_processor
@@ -58,35 +49,27 @@ def context():
 @app.route("/")
 # @cache.cached(timeout=60)
 def home():
-    return render_template("pages/home.html")
+    start_date = datetime(2016, 6, 13)
+    yoe = int((datetime.now() - start_date).days // 365.25)
+    return render_template("pages/home.html", yoe=yoe)
 
 
 @app.route("/projects")
 # @cache.cached(timeout=60)
 def projects():
 
-    # TODO - get all of the projects in p
-
-    return render_template("pages/projects.html")
+    return render_template(
+        "pages/projects.html",
+        project_list=sorted_project_list,
+        project_data=project_data
+    )
 
 
 @app.route("/projects/<slug>")
 # @cache.cached(timeout=60)
 def project_page(slug):
-
-    # # load project markdown
-    # project_markdown_path = os.path.join(PROJECTS_DIR, f'{slug}.md').replace("-","_")
-
-    # with open(project_markdown_path, "r") as f:
-    #     project_file = frontmatter.load(f)
-
-    # project_metadata = project_file.metadata
-    # project_content = markdown.markdown(project_file.content)
-
     return render_template(
         "pages/project_page.html", 
-        # project_content=Markup(project_content),
-        # project_metadata=project_metadata
         project_content=Markup(project_data[slug]["project_content"]),
         project_metadata=project_data[slug]["project_metadata"]
     )

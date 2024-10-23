@@ -3,16 +3,8 @@
 "status": "Active"
 "category": "Data Science"
 "publish_month_year": "October 2018"
-"project_summary": "Short summary text here"
-"technologies": [
-    "Python",
-    "Google Cloud",
-    "BigQuery",
-    "Tableau"
-]
-"preview_image": "url to image here"
+"project_summary": "Using BigQuery ML and Tableau for dynamic model predictions."
+"technologies": []
+"github_link": ""
+"medium_link": "https://medium.com/@matt_collins/bigquery-ml-tableau-34f8ecb0caa9"
 ---
-
-
-### Overview
-Coming soon
