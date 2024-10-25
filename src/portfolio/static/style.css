@@ -137,3 +137,27 @@ body .content {
     margin-bottom: 1.25rem;
     color: #727272;
 }
+
+
+.markdown-project-content {
+    font-size: 1.25rem;
+}
+
+.markdown-project-content h1,
+.markdown-project-content h2,
+.markdown-project-content h3,
+.markdown-project-content h4,
+.markdown-project-content h5,
+.markdown-project-content h6 {
+    font-weight: bold;
+}
+
+.markdown-project-content img {
+    max-width: 80%;
+    max-height: 100%;
+    height: auto;
+    display: block;
+    margin: 3rem auto;
+    border: 2px solid #39374F;      /* Border around the image */
+    border-radius: 8px;          /* Rounded corners */
+  }
