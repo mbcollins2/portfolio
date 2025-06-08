@@ -1,13 +1,23 @@
+:root {
+  --static-bg-color: #1a1a2e; /* Overall background color */ /* #1E1D2A, 1a1a2e 14102C */
+  --main-text-color: #e0e0e0; /* Primary text color */
+  --accent-text-color: #6F6B98; /* Accent text color - #c9c8c7 ffc107*/
+  --link-hover-color: #6F6B98; /* Link hover color - rgba(255, 255, 255, 0.05) #c9c8c7 00bcd4*/
+  --project-card-bg-color: rgba(255, 255, 255, 0.05); /* Project box color */
+}
+
+
 body {
     font-family: 'Inconsolata', sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: #1E1D2A;
+    background: var(--static-bg-color);
 }
 
 body .content {
     flex: 1;
+    font-size: 1.2rem;
 }
 
 .release-link {
@@ -25,7 +35,7 @@ body .content {
 /* footer .release-link:hover {
     text-decoration: underline;
 } */
- 
+
 .release-link:hover::after {
     opacity: 1;
     right: 20px;
@@ -41,8 +51,14 @@ body .content {
 }
 
 .nav-item {
-    --bs-nav-link-color: #c9c8c7;
-    --bs-nav-link-hover-color: #c9c8c7;
+    --bs-nav-link-color: var(--accent-text-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+    --bs-nav-link-hover-color: var(--link-hover-color);
+}
+.navbar .nav-link:hover {
+    --bs-nav-link-color: var(--accent-text-color);
+    text-decoration: underline;
 }
 
 #project-dropdown-button {
@@ -68,8 +84,8 @@ body .content {
 
 .hero-text-link:hover {
     text-decoration: underline;
+    --bs-nav-link-color: var(--accent-text-color);
 }
-
 
 /* Project Cards */
 .feature-icon {
@@ -77,23 +93,23 @@ body .content {
     height: 4rem;
     border-radius: .75rem;
 }
-  
+
 .icon-square {
     width: 3rem;
     height: 3rem;
     border-radius: .75rem;
 }
-  
+
 .text-shadow-1 { text-shadow: 0 .125rem .25rem rgba(0, 0, 0, .25); }
 .text-shadow-2 { text-shadow: 0 .25rem .5rem rgba(0, 0, 0, .25); }
 .text-shadow-3 { text-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .25); }
-  
+
 .card-cover {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
 }
-  
+
 .feature-icon-small {
     width: 3rem;
     height: 3rem;
@@ -108,9 +124,6 @@ body .content {
     filter: brightness(100%);
 }
 
-.navbar .nav-link:hover {
-    text-decoration: underline;
-}
 
 .bi {
     vertical-align: -.125em;
@@ -121,12 +134,15 @@ body .content {
     /* background: #3B3A49; */
     /* background: #2d2c38; */
     /* background: #39374F; */
-    background: #2C2A3D;
+    /* background: #2C2A3D; */
+    /* background: #39374F; */
+    background: #1E1D2A;
     transition: tranform ease 300ms;
 }
 .project-box:hover {
     /* background: #2C2A3D; */
-    background: #39374F;
+    /* background: #39374F; */
+    background: var(--project-card-bg-color);
 }
 
 .blog-post {
@@ -158,6 +174,42 @@ body .content {
     height: auto;
     display: block;
     margin: 3rem auto;
-    border: 2px solid #39374F;      /* Border around the image */
-    border-radius: 8px;          /* Rounded corners */
+    border: 2px solid var(--accent-text-color);
+    border-radius: 8px;
   }
+
+
+
+
+/* Home Page */
+/* .profile-pic {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 17rem;
+    height: 17rem;
+    box-shadow: 3px 3px 4px var(--accent-text-color);
+} */
+.profile-pic {
+  /* Creates the accent ring */
+    width: 17rem;
+    height: 17rem;
+    border-radius: 50%;
+    padding: 1px;
+    background: var(--accent-text-color);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+/* General */
+.accent-text {
+    color: var(--accent-text-color);
+    font-weight: bold;
+    text-decoration: none;
+}
