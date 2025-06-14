@@ -20,7 +20,7 @@
           <div class="col-md-6">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
               <div class="col p-4 d-flex flex-column position-static project-box">
-                <strong class="d-inline-block mb-2 text-primary-emphasis">{{ project_data[project]["project_metadata"]["category"] }}</strong>
+                <strong class="d-inline-block mb-2 accent-text">{{ project_data[project]["project_metadata"]["category"] }}</strong>
                 <h3 class="mb-0">{{ project_data[project]["project_metadata"]["title"] }}</h3>
                 <div class="mb-1 text-body-secondary">{{ project_data[project]["project_metadata"]["publish_month_year"] }}</div>
                 <p class="card-text mb-auto">{{ project_data[project]["project_metadata"]["project_summary"] }}</p>
@@ -29,7 +29,7 @@
                 {% if project_data[project]["project_metadata"]["status"] == 'Active' %}
 
                   {% if project_data[project]["project_metadata"]["medium_link"] %}
-                    <a href="{{ project_data[project]['project_metadata']['medium_link'] }}" target="_blank" class="icon-link gap-1 icon-link-hover stretched-link">
+                    <a href="{{ project_data[project]['project_metadata']['medium_link'] }}" target="_blank" class="accent-text icon-link gap-1 icon-link-hover stretched-link">
                       <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
                         <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                         <path fill="#fff" d="M180.5 74.3C80.8 74.3 0 155.6 0 256S80.8 437.7 180.5 437.7 361 356.4 361 256 280.2 74.3 180.5 74.3zm288.3 10.6c-49.8 0-90.2 76.6-90.2 171.1s40.4 171.1 90.3 171.1 90.3-76.6 90.3-171.1H559C559 161.5 518.6 84.9 468.8 84.9zm139.5 17.8c-17.5 0-31.7 68.6-31.7 153.3s14.2 153.3 31.7 153.3S640 340.6 640 256C640 171.4 625.8 102.7 608.3 102.7z"/>
@@ -39,14 +39,14 @@
                       <svg class="bi"><use xlink:href="#chevron-right"/></svg>
                     </a>
                   {% else %}
-                    <a href="/projects/{{ project }}" class="icon-link gap-1 icon-link-hover stretched-link">
+                    <a href="/projects/{{ project }}" class="accent-text icon-link gap-1 icon-link-hover stretched-link">
                       Continue reading
                       <svg class="bi"><use xlink:href="#chevron-right"/></svg>
                     </a>
                   {% endif %}
 
                 {% else %}
-                <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+                <a href="#" class="accent-text icon-link gap-1 icon-link-hover stretched-link">
                   Coming soon
                 </a>
                 {% endif %}

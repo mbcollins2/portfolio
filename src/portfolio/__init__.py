@@ -69,7 +69,7 @@ def projects():
 # @cache.cached(timeout=60)
 def project_page(slug):
     return render_template(
-        "pages/project_page.html", 
+        "pages/project_page.html",
         project_content=Markup(project_data[slug]["project_content"]),
         project_metadata=project_data[slug]["project_metadata"]
     )
