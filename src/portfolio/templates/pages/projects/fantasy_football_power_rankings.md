@@ -2,7 +2,7 @@
 "title": "Fantasy Football Power Rankings"
 "status": "Active"
 "category": "Generative AI"
-"publish_month_year": "November 2024"
+"publish_month_year": "June 2025"
 "project_summary": "Leveraging an LLM RAG architecture to generate weekly fantasy football power rankings."
 "technologies": [
     "Python",
@@ -36,8 +36,7 @@ The output, after final formatting and review, is shown below (*the teams names 
 
 This post will walk through the development process and share some lessons learned.
 
-_Note: This post focuses on creating a web app to automate the prompt engineering process._
-_An easy future enhancement would be to pass this prompt to an LLM API programmatically using a tool such as LangChain._
+_Note: This post focuses on creating a web app to automate the RAG and prompt engineering portions of an application. An easy future enhancement would be to pass this prompt to an LLM API programmatically using a tool such as LangChain._
 
 <br>
 
