@@ -69,11 +69,11 @@ def projects():
 # @cache.cached(timeout=60)
 def project_page(slug):
     return render_template(
-        "pages/project_page.html", 
+        "pages/project_page.html",
         project_content=Markup(project_data[slug]["project_content"]),
         project_metadata=project_data[slug]["project_metadata"]
     )
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080, debug=True)
+    app.run(host="0.0.0.0", port=8080, debug=False)

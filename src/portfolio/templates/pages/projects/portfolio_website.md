@@ -18,7 +18,7 @@
 ---
 
 
-### Overview
+# Overview
 The purpose of this site is to have a place to organize and write about other 
 projects that I have worked on and to brush up on web development.
 
@@ -27,7 +27,7 @@ familiarity with Python and some previous experience with Bootstrap.
 
 <br>
 
-### Development
+# Development
 
 This website was initially developed over the course of a weekend. VSCode code 
 was used for the IDE.
@@ -40,7 +40,7 @@ mostly to extend base versions of the layout, navigation bar, and footer.
 
 <br>
 
-### Automated Deployments
+# Automated Deployments
 
 For serving the site, automated deployments are set up between Github and Railway.
 
