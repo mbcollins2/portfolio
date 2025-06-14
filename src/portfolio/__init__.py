@@ -43,6 +43,7 @@ app = Flask(__name__)
 def context():
     return dict(
         version = config["project"]["version"],
+        current_year = datetime.now().year
     )
 
 
