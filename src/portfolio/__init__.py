@@ -7,7 +7,7 @@ from markupsafe import Markup
 # from flask_caching import Cache
 from flask import Flask, render_template
 
-from utils.helpers import (
+from .utils.helpers import (
     markdown_add_expandable_images,
     markdown_link_formatting,
 )
