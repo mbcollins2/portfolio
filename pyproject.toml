@@ -1,7 +1,7 @@
 [project]
 name = "portfolio"
 version = "0.3.4"
-description = "Add your description here"
+description = "Portfolio site"
 requires-python = ">=3.11"
 dependencies = [
     "flask==3.0.3",
