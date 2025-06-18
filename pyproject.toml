@@ -1,6 +1,6 @@
 [project]
 name = "portfolio"
-version = "0.3.3"
+version = "0.3.4"
 description = "Add your description here"
 requires-python = ">=3.11"
 dependencies = [
@@ -9,7 +9,9 @@ dependencies = [
     "gunicorn==23.0.0",
     "flask-caching==2.3.0",
     "markdown==3.7",
-    "python-frontmatter==1.1.0"
+    "python-frontmatter==1.1.0",
+    "beautifulsoup4==4.13.4",
+    "lxml==5.4.0"
 ]
 
 [build-system]

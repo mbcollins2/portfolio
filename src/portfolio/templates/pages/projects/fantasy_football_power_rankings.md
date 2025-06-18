@@ -9,7 +9,8 @@
     "Generative AI",
     "Prompt Engineering",
     "RAG",
-    "Streamlit"
+    "Streamlit",
+    "ChatGPT"
 ]
 "github_link": ""
 "medium_link": ""
@@ -74,7 +75,7 @@ in a subsequent approach.
 
 <br>
 
-### Power Rankings Version 1
+### Prompt Version 1
 For the first version of the power rankings, I would collect and organize team names
 and stats, and then ChatGPT was asked to power rank the teams.
 
@@ -138,7 +139,7 @@ This results in the final power ranking value that is used to order the teams.
 
 <br>
 
-### Prompt Engineering
+### Prompt Version 2
 Once the rankings are applied, the prompt was reworked significantly. The prompt content
 and formatting are all programmitically created using Python and data from the Sleeper API.
 
@@ -155,7 +156,6 @@ As you can see, this prompt contains numerous changes that improve performance:
 
 <br>
 
-##### Output Example
 As you can see below, this new prompt results in a much better output than before.
 
 ![version2_output](../../../static/images/project_content_images/fantasy_football_power_rankings/version2_output.png)
@@ -196,7 +196,7 @@ just moving a team between tiers.
     and overall themes
 2. `Prompt Engineering` - _Constructing a good input is key_
     - Prompt engineering was just as import as RAG for this project. Providing useful context
-    and an example output went a long way in helpful to standardize the output
+    and an example output went a long way in helping to standardize the output
     - These contraints help narrow the focus of where GenAI can add its value to the system
 3. `Human in the loop` - _If possible, some human post-processesing will yield the best results_
     - Ultimately, even with a solid prompt and input data, there is still a level of variance
@@ -206,6 +206,12 @@ just moving a team between tiers.
     like important players returning from injury are difficult to quantify with the available data, but
     easy to discern as a human
     - This workflow is still much faster than starting from scratch
-4. _Formatting alone was very helpful_
-    - Just using a RAG approach to provide some data and have it formatted in a specific
-    way was suprisingly effective and helpful
+
+<br>
+<br>
+
+# Sources & Resources Used
+- [Sleeper](https://sleeper.com/)
+- [Sleeper API](https://docs.sleeper.com/)
+- [Streamlit](https://streamlit.io/)
+- [ChatGPT](https://chatgpt.com/)
