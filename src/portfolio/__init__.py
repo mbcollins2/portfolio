@@ -1,21 +1,25 @@
 import os
-import json
 import tomllib
 import markdown
 import frontmatter
 from datetime import datetime
 from markupsafe import Markup
-from flask_caching import Cache
+# from flask_caching import Cache
 from flask import Flask, render_template
+
+from utils.helpers import (
+    markdown_add_expandable_images,
+    markdown_link_formatting,
+)
 
 # parse toml config file
 with open("pyproject.toml", "rb") as f:
     config = tomllib.load(f)
 
 
+# parse projects
 PROJECTS_DIR = "src/portfolio/templates/pages/projects"
 PROJECTS_IMAGE_DIR = "../../static/images/project_cards"
-
 
 project_data = dict()
 for project_filename in os.listdir(PROJECTS_DIR):
@@ -27,8 +31,15 @@ for project_filename in os.listdir(PROJECTS_DIR):
         with open(os.path.join(PROJECTS_DIR, project_filename), "r") as f:
             project_file = frontmatter.load(f)
 
+        project_content = markdown.markdown(project_file.content)
+        project_content = markdown_add_expandable_images(project_content)
+        project_content = markdown_link_formatting(
+            project_content,
+            class_names=["project-body-link"]
+        )
+
         project_data[project_slug]["project_metadata"] = project_file.metadata
-        project_data[project_slug]["project_content"] = markdown.markdown(project_file.content)
+        project_data[project_slug]["project_content"] = project_content
         project_data[project_slug]["project_image"] = os.path.join(PROJECTS_IMAGE_DIR, f"{project_filename[:-3]}.png")
 
 project_list = [{"title": x, "date": project_data[x]['project_metadata']['publish_month_year']} for x in project_data]

@@ -1,12 +1,12 @@
 :root {
   --static-bg-color: #1a1a2e; /* Overall background color */ /* #1E1D2A, 1a1a2e 14102C */
   --main-text-color: #e0e0e0; /* Primary text color */
-  --accent-text-color: #6F6B98; /* Accent text color - #c9c8c7 ffc107*/
+  --accent-text-color: #8787BB; /* Accent text color - #6F6B98 c9c8c7 ffc107  9d4edd*/
   --link-hover-color: #6F6B98; /* Link hover color - rgba(255, 255, 255, 0.05) #c9c8c7 00bcd4*/
   --project-card-bg-color: rgba(255, 255, 255, 0.05); /* Project box color */
 }
 
-
+/* body text */
 body {
     font-family: 'Inconsolata', sans-serif;
     display: flex;
@@ -19,6 +19,7 @@ body .content {
     flex: 1;
     font-size: 1.2rem;
 }
+
 
 .release-link {
     text-decoration: none;
@@ -41,6 +42,8 @@ body .content {
     right: 20px;
 }
 
+
+/* Nav Bar */
 .navbar-toggler,
 .navbar-toggler:focus,
 .navbar-toggler:active,
@@ -54,11 +57,15 @@ body .content {
     --bs-nav-link-color: var(--accent-text-color);
     font-weight: bold;
     font-size: 1.2rem;
-    --bs-nav-link-hover-color: var(--link-hover-color);
+    --bs-nav-link-hover-color: var(--accent-text-color);
 }
 .navbar .nav-link:hover {
     --bs-nav-link-color: var(--accent-text-color);
     text-decoration: underline;
+}
+
+.nav-icon-color {
+    color: var(--accent-text-color);
 }
 
 #project-dropdown-button {
@@ -82,9 +89,18 @@ body .content {
     display: inline-block;
 }
 
+.hero-text-link {
+    text-decoration: none;
+}
+
 .hero-text-link:hover {
     text-decoration: underline;
-    --bs-nav-link-color: var(--accent-text-color);
+}
+
+.project-body-link,
+.project-body-link:hover {
+    color: var(--accent-text-color);
+    text-decoration: underline;
 }
 
 /* Project Cards */
@@ -182,28 +198,28 @@ body .content {
 
 
 /* Home Page */
-/* .profile-pic {
-    border-radius: 50%;
-    object-fit: cover;
-    width: 17rem;
-    height: 17rem;
-    box-shadow: 3px 3px 4px var(--accent-text-color);
-} */
 .profile-pic {
-  /* Creates the accent ring */
-    width: 17rem;
-    height: 17rem;
+    width: 16rem;
+    height: 16rem;
     border-radius: 50%;
     padding: 1px;
     background: var(--accent-text-color);
     box-shadow: 0 8px 15px rgba(0,0,0,0.3);
 }
 
-.profile-pic img {
+/* .profile-pic img {
     width: 100%;
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
+} */
+
+@media (max-width: 576px) {
+    /* for mobile */
+    .profile-pic {
+        width: 10rem;
+        height: 10rem;
+    }
 }
 
 
