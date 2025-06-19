@@ -7,24 +7,77 @@
     <!-- Hero -->
     <div class="container col-xxl-8 px-4 py-5">
       <div class="row g-5 py-5">
-        <div class="col-12 col-lg-4 d-flex justify-content-center">
-          <img src="../../static/images/profile_pic.jpg" class="profile-pic" alt="Headshot" loading="lazy">
+
+
+        <!-- <div class="col-12 col-lg-4 d-flex justify-content-center">
+          <img src="../../static/images/profile_pic.jpg" class="profile-pic" alt="Headshot">
+        </div> -->
+        <div class="blob-container">
+        <img src="../../static/images/profile_pic.jpg" alt="Your Name" class="profile-picture">
+
+        <svg class="blob-svg" viewBox="0 0 500 500">
+        <defs>
+            <filter id="blob-filter-1">
+            <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="1" seed="1">
+                <animate attributeName="baseFrequency" dur="38s" values="0.01;0.015;0.01" repeatCount="indefinite" />
+            </feTurbulence>
+            <feDisplacementMap in="SourceGraphic" scale="15" />
+            </filter>
+            <filter id="blob-filter-2">
+            <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="1" seed="2">
+                <animate attributeName="baseFrequency" dur="43s" values="0.01;0.02;0.01" repeatCount="indefinite" />
+            </feTurbulence>
+            <feDisplacementMap in="SourceGraphic" scale="15" />
+            </filter>
+            <filter id="blob-filter-3">
+            <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="1" seed="3">
+                <animate attributeName="baseFrequency" dur="51s" values="0.01;0.017;0.01" repeatCount="indefinite" />
+            </feTurbulence>
+            <feDisplacementMap in="SourceGraphic" scale="15" />
+            </filter>
+        </defs>
+
+        <g>
+            <ellipse cx="250" cy="250" rx="180" ry="180" fill-opacity="0.25" fill="#8787BB" filter="url(#blob-filter-1)">
+            <animate attributeName="cx" dur="90s" repeatCount="indefinite" class="randomize-values" data-center="250" data-variance="0.1" />
+            <animate attributeName="cy" dur="90s" repeatCount="indefinite" class="randomize-values" data-center="250" data-variance="0.1" />
+            <animate attributeName="rx" dur="90s" repeatCount="indefinite" class="randomize-values" data-center="180" data-variance="0.3" />
+            <animate attributeName="ry" dur="90s" repeatCount="indefinite" class="randomize-values" data-center="180" data-variance="0.3" />
+            </ellipse>
+
+            <ellipse cx="250" cy="250" rx="180" ry="180" fill-opacity="0.2" fill="#8787BB" filter="url(#blob-filter-2)">
+            <animate attributeName="cx" dur="90s" repeatCount="indefinite" class="randomize-values" data-center="250" data-variance="0.1" />
+            <animate attributeName="cy" dur="90s" repeatCount="indefinite" class="randomize-values" data-center="250" data-variance="0.1" />
+            <animate attributeName="rx" dur="90s" repeatCount="indefinite" class="randomize-values" data-center="180" data-variance="0.3" />
+            <animate attributeName="ry" dur="90s" repeatCount="indefinite" class="randomize-values" data-center="180" data-variance="0.3" />
+            </ellipse>
+
+            <ellipse cx="250" cy="250" rx="180" ry="180" fill-opacity="0.15" fill="#8787BB" filter="url(#blob-filter-3)">
+            <animate attributeName="cx" dur="90s" repeatCount="indefinite" class="randomize-values" data-center="250" data-variance="0.1" />
+            <animate attributeName="cy" dur="90s" repeatCount="indefinite" class="randomize-values" data-center="250" data-variance="0.1" />
+            <animate attributeName="rx" dur="90s" repeatCount="indefinite" class="randomize-values" data-center="180" data-variance="0.3" />
+            <animate attributeName="ry" dur="90s" repeatCount="indefinite" class="randomize-values" data-center="180" data-variance="0.3" />
+            </ellipse>
+        </g>
+        </svg>
+
         </div>
+
+
+
         <div class="col-12 col-lg-8">
-          <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Hi, I'm Matt</h1>
+          <h1 class="display-4 fw-bold text-body-emphasis lh-1 mb-3">Hi, I'm Matt</h1>
 
           <h5 class="accent-text" style="font-size:1.4rem;">MS Computer Science | MBA</h5>
           <p class="mb-auto">&nbsp;</p>
 
-          <p class="lead">{{ yoe }}+ years in
-            <!-- <span  class="fs-1" style="color:#6F6B98; position: relative; bottom: -0.5rem;"><strong>{</strong></span> -->
-            <span class="fw-bolder" style="color:#6F6B98"><strong>{</strong></span>
+          <p style="font-size:1.3rem;">{{ yoe }}+ years in
+            <span class="fw-bolder accent-text-color"><strong>{</strong></span>
             data science | analytics | ai
-            <!-- <span  class="fs-1" style="color:#6F6B98; position: relative; bottom: -0.5rem;"><strong>}</strong></span> -->
-            <span class="fw-bolder" style="color:#6F6B98"><strong>}</strong></span>
+            <span class="fw-bolder accent-text-color"><strong>}</strong></span>
           </p>
           <p class="mb-auto">&nbsp;</p>
-          <p class="lead">
+          <p style="font-size:1.3rem;">
             You can read more about the
             <a href="{{ url_for('projects') }}" rel="noopener noreferrer" style="text-decoration: none;">
               <span class="text-sm hero-text-link accent-text">personal projects</span>
@@ -47,4 +100,44 @@
     </div>
 
   </div>
+
+  <script>
+    /**
+     * Generates a randomized list of values for SVG animation.
+     * @param {number} center - The base value to vary from.
+     * @param {number} variance - The percentage to vary by (e.g., 0.1 for 10%).
+     * @param {number} steps - How many keyframes in the animation loop.
+     * @returns {string} - A semicolon-separated string of values.
+     */
+    function generateRandomValues(center, variance, steps = 5) {
+        const halfVariance = variance / 2;
+        const min = center * (1 - halfVariance);
+        const max = center * (1 + halfVariance);
+
+        let values = [center.toFixed(3)]; // Start at the center
+        for (let i = 0; i < steps - 1; i++) {
+        const randomValue = Math.random() * (max - min) + min;
+        values.push(randomValue.toFixed(3));
+        }
+        values.push(center.toFixed(3)); // End at the center to make a clean loop
+
+        return values.join(';');
+    }
+
+    // Wait for the page to fully load before running the script
+    document.addEventListener('DOMContentLoaded', () => {
+        // Find all <animate> tags that we want to randomize
+        const animationsToRandomize = document.querySelectorAll('.randomize-values');
+
+        animationsToRandomize.forEach(animation => {
+        const center = parseFloat(animation.dataset.center);
+        const variance = parseFloat(animation.dataset.variance);
+
+        if (!isNaN(center) && !isNaN(variance)) {
+            const newValues = generateRandomValues(center, variance);
+            animation.setAttribute('values', newValues);
+        }
+        });
+    });
+  </script>
 {% endblock content %}
