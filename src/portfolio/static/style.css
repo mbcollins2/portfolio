@@ -8,11 +8,11 @@
 
 
 
-
 /* General */
 body {
-    font-family: 'Inconsolata', sans-serif;
-    font-weight: 400;
+    font-family: "Space Grotesk", monospace;
+    /* font-family: "Inconsolata", monospace; */
+    font-weight: 300;
     font-optical-sizing: auto;
     display: flex;
     flex-direction: column;
@@ -37,7 +37,6 @@ p {
 
 
 
-
 /* Footer */
 .release-link {
     text-decoration: none;
@@ -55,10 +54,6 @@ p {
     opacity: 1;
     right: 20px;
 }
-/* footer .release-link:hover {
-    text-decoration: underline;
-} */
-
 
 
 
@@ -110,7 +105,6 @@ p {
 
 
 
-
 /* Project Pages */
 .project-body-link,
 .project-body-link:hover {
@@ -155,7 +149,6 @@ figcaption {
 
 
 
-
 /* Project Cards */
 .feature-icon {
     width: 4rem;
@@ -190,20 +183,12 @@ figcaption {
     fill: currentColor;
   }
 .project-box {
-    /* background: #3B3A49; */
-    /* background: #2d2c38; */
-    /* background: #39374F; */
-    /* background: #2C2A3D; */
-    /* background: #39374F; */
     background: #1E1D2A;
     transition: tranform ease 300ms;
 }
 .project-box:hover {
-    /* background: #2C2A3D; */
-    /* background: #39374F; */
     background: var(--project-card-bg-color);
 }
-
 
 
 
@@ -212,43 +197,21 @@ figcaption {
     width: 16rem;
     height: 16rem;
     border-radius: 50%;
-    /* padding: 1px; */
-    /* background: var(--accent-text-color); */
-    /* box-shadow: 0 8px 15px rgba(0,0,0,0.3); */
+    padding: 1px;
+    background: var(--accent-text-color);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+.resizable-text {
+  font-size: 1.3rem;
+  transition: font-size 0.2s ease-in-out;
 }
 @media (max-width: 576px) {
-    /* for mobile */
+    /* mobile */
     .profile-pic {
         width: 10rem;
         height: 10rem;
     }
-}
-
-/* Profile Pic */
-.blob-container {
-  position: relative;
-  width: 300px;
-  height: 300px;
-}
-
-.profile-picture {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-  z-index: 10; /* Ensures image is on top */
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-}
-
-.blob-svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1; /* Ensures SVG is behind image */
+    .resizable-text {
+        font-size: 1.1rem;
+    }
 }
