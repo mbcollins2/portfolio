@@ -22,9 +22,9 @@
               <div class="col p-4 d-flex flex-column position-static project-box">
                 <strong class="d-inline-block mb-2 accent-text">{{ project_data[project]["project_metadata"]["category"] }}</strong>
                 <h3 class="mb-0">{{ project_data[project]["project_metadata"]["title"] }}</h3>
-                <div class="mb-1 text-body-secondary">{{ project_data[project]["project_metadata"]["publish_month_year"] }}</div>
-                <p class="card-text mb-auto">{{ project_data[project]["project_metadata"]["project_summary"] }}</p>
-                <p class="mb-auto">&nbsp;</p>
+                <div class="mb-1 text-muted fs-6">{{ project_data[project]["project_metadata"]["publish_month_year"] }}</div>
+                <p class="card-text mt-2 mb-4 lh-sm">{{ project_data[project]["project_metadata"]["project_summary"] }}</p>
+                <!-- <p class="mb-1">&nbsp;</p> -->
 
                 {% if project_data[project]["project_metadata"]["status"] == 'Active' %}
 

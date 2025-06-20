@@ -60,7 +60,12 @@ the release tag is applied, and the release is merged with the master branch.
 When the release is merged into the master branch, it triggers another automated
 deployment to push the changes to the production server.
 
-![deployment_pattern](../../../static/images/project_content_images/portfolio_website/deployment_pattern.png)
+<figure>
+  <img src="../../../static/images/project_content_images/portfolio_website/deployment_pattern.png" alt="deployment_pattern">
+  <figcaption>Figure 1: Deployment pattern.</figcaption>
+</figure>
+
+<!-- ![deployment_pattern](../../../static/images/project_content_images/portfolio_website/deployment_pattern.png) -->
 
 <br>
 <br>

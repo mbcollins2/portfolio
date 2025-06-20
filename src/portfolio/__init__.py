@@ -10,6 +10,7 @@ from flask import Flask, render_template
 from .utils.helpers import (
     markdown_add_expandable_images,
     markdown_link_formatting,
+    markdown_parse_figures,
 )
 
 # parse toml config file
@@ -26,17 +27,22 @@ for project_filename in os.listdir(PROJECTS_DIR):
     if project_filename.endswith(".md"):
         project_slug = project_filename[:-3].replace("_","-")
 
-        project_data[project_slug] = dict()
-
         with open(os.path.join(PROJECTS_DIR, project_filename), "r") as f:
             project_file = frontmatter.load(f)
 
         project_content = markdown.markdown(project_file.content)
         project_content = markdown_add_expandable_images(project_content)
+        project_content = markdown_parse_figures(project_content)
         project_content = markdown_link_formatting(
             project_content,
             class_names=["project-body-link"]
         )
+
+        # do not include projects in draft status
+        if project_file.metadata["status"] == "Draft":
+            continue
+
+        project_data[project_slug] = dict()
 
         project_data[project_slug]["project_metadata"] = project_file.metadata
         project_data[project_slug]["project_content"] = project_content
@@ -69,7 +75,6 @@ def home():
 @app.route("/projects")
 # @cache.cached(timeout=60)
 def projects():
-
     return render_template(
         "pages/projects.html",
         project_list=sorted_project_list,
@@ -83,7 +88,8 @@ def project_page(slug):
     return render_template(
         "pages/project_page.html",
         project_content=Markup(project_data[slug]["project_content"]),
-        project_metadata=project_data[slug]["project_metadata"]
+        project_metadata=project_data[slug]["project_metadata"],
+        project_header_image=project_data[slug]["project_image"]
     )
 
 
