@@ -30,6 +30,40 @@ def markdown_add_expandable_images(text):
     # return the modified HTML
     return str(soup)
 
+def markdown_parse_figures(text):
+    """
+    Finds all images within <figure> tags and wraps them for GLightbox,
+    using the <figcaption> as the lightbox description.
+    """
+    html = markdown.markdown(text, extensions=['fenced_code'])
+    soup = BeautifulSoup(html, 'lxml')
+
+    # loop over figures and create and add the <a> tag
+    for figure in soup.find_all('figure'):
+        img = figure.find('img')
+
+        if not img.find_parent('a'):
+            figcaption = figure.find('figcaption')
+
+            description_text = ''
+            if figcaption:
+                description_text = figcaption.get_text(strip=True)
+
+            alt_text = img.get('alt', '')
+            img_src = img.get('src', '')
+
+            # create the <a> tag with title and description attributes
+            a_tag = soup.new_tag('a', href=img_src, **{
+                'class': 'expandable-image',
+                'data-gallery': 'project-gallery',
+            })
+
+            # wrap the <img> tag with the <a> tag
+            img.wrap(a_tag)
+
+    # return the modified HTML
+    return str(soup)
+
 
 def markdown_link_formatting(text:str, class_names:list) -> str:
     """
