@@ -6,7 +6,6 @@ from datetime import datetime
 from markupsafe import Markup
 # from flask_caching import Cache
 from flask import Flask, render_template
-
 from .utils.helpers import (
     markdown_add_expandable_images,
     markdown_link_formatting,
@@ -20,7 +19,7 @@ with open("pyproject.toml", "rb") as f:
 
 # parse projects
 PROJECTS_DIR = "src/portfolio/templates/pages/projects"
-PROJECTS_IMAGE_DIR = "../../static/images/project_cards"
+PROJECTS_IMAGE_DIR = "static/images/project_cards"
 
 project_data = dict()
 for project_filename in os.listdir(PROJECTS_DIR):
@@ -30,7 +29,7 @@ for project_filename in os.listdir(PROJECTS_DIR):
         with open(os.path.join(PROJECTS_DIR, project_filename), "r") as f:
             project_file = frontmatter.load(f)
 
-        project_content = markdown.markdown(project_file.content)
+        project_content = markdown.markdown(project_file.content, extensions=['fenced_code'])
         project_content = markdown_add_expandable_images(project_content)
         project_content = markdown_parse_figures(project_content)
         project_content = markdown_link_formatting(
@@ -46,11 +45,18 @@ for project_filename in os.listdir(PROJECTS_DIR):
 
         project_data[project_slug]["project_metadata"] = project_file.metadata
         project_data[project_slug]["project_content"] = project_content
-        project_data[project_slug]["project_image"] = os.path.join(PROJECTS_IMAGE_DIR, f"{project_filename[:-3]}.png")
+
+        # check for svg image first, otherwise use png
+        project_card_image_basename = os.path.join(os.path.dirname(__file__), PROJECTS_IMAGE_DIR, f"{project_filename[:-3]}")
+        if os.path.exists(f"{project_card_image_basename}.svg"):
+            project_data[project_slug]["project_image"] = os.path.join(PROJECTS_IMAGE_DIR, f"{project_filename[:-3]}.svg")
+        else:
+            project_data[project_slug]["project_image"] = os.path.join(PROJECTS_IMAGE_DIR, f"{project_filename[:-3]}.png")
+
+
 
 project_list = [{"title": x, "date": project_data[x]['project_metadata']['publish_month_year']} for x in project_data]
 sorted_project_list = [x['title'] for x in sorted(project_list, key=lambda x: datetime.strptime(x['date'], '%B %Y'), reverse=True)]
-
 
 app = Flask(__name__)
 # cache = Cache(app, config={"CACHE_TYPE": "SimpleCache"})
@@ -88,8 +94,7 @@ def project_page(slug):
     return render_template(
         "pages/project_page.html",
         project_content=Markup(project_data[slug]["project_content"]),
-        project_metadata=project_data[slug]["project_metadata"],
-        project_header_image=project_data[slug]["project_image"]
+        project_metadata=project_data[slug]["project_metadata"]
     )
 
 
