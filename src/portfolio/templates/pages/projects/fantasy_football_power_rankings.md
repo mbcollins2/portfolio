@@ -1,8 +1,8 @@
 ---
-"title": "Fantasy Football Power Rankings"
+"title": "GenAI Fantasy Football Rankings"
 "status": "Active"
 "category": "Generative AI"
-"publish_month_year": "June 2025"
+"publish_month_year": "November 2024"
 "project_summary": "Leveraging an LLM RAG architecture to generate weekly fantasy football power rankings."
 "technologies": [
     "Python",
@@ -10,7 +10,7 @@
     "Prompt Engineering",
     "RAG",
     "Streamlit",
-    "ChatGPT"
+    "ChatGPT",
 ]
 "github_link": ""
 "medium_link": ""
@@ -33,7 +33,10 @@ leveraging data from the Sleeper API to generate the rankings.
 
 The output, after final formatting and review, is shown below (*the teams names are kept anonymous for this post*):
 
-![preview_final_power_rankings](../../../static/images/project_content_images/fantasy_football_power_rankings/preview_final_power_rankings.png)
+<figure>
+  <img src="../../../static/images/project_content_images/fantasy_football_power_rankings/preview_final_power_rankings.png" alt="preview_final_power_rankings">
+  <figcaption>Figure 1: Final power rankings.</figcaption>
+</figure>
 
 This post will walk through the development process and share some lessons learned.
 
@@ -210,7 +213,7 @@ just moving a team between tiers.
 <br>
 <br>
 
-# Sources & Resources Used
+# Sources & Resources
 - [Sleeper](https://sleeper.com/)
 - [Sleeper API](https://docs.sleeper.com/)
 - [Streamlit](https://streamlit.io/)

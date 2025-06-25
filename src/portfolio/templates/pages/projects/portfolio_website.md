@@ -3,7 +3,7 @@
 "status": "Active"
 "category": "Web Development"
 "publish_month_year": "October 2024"
-"project_summary": "Post discussing the architecture, development, and deployment of this site."
+"project_summary": "Discussing the development of this site and hosting it for $0.50/month."
 "technologies": [
     "Python",
     "Flask",
@@ -62,15 +62,13 @@ deployment to push the changes to the production server.
 
 <figure>
   <img src="../../../static/images/project_content_images/portfolio_website/deployment_pattern.png" alt="deployment_pattern">
-  <figcaption>Figure 1: Deployment pattern.</figcaption>
+  <figcaption>Figure 1: Automated deployment pattern using GitHub and Railway.</figcaption>
 </figure>
 
-<!-- ![deployment_pattern](../../../static/images/project_content_images/portfolio_website/deployment_pattern.png) -->
-
 <br>
 <br>
 
-# Sources & Resources Used
+# Sources & Resources
 - [Railway](http://railway.com/)
 - [GitHub](https://github.com/)
 - [Excalidraw](https://excalidraw.com/)
