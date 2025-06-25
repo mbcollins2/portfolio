@@ -1,65 +1,78 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <!-- Custom Images -->
-  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+<!-- Custom Images -->
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
     <symbol id="chevron-right" viewBox="0 0 16 16">
-      <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+        <path fill-rule="evenodd"
+            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
     </symbol>
-  </svg>
+</svg>
 
-  <!-- Content -->
-  <div class="content">
+<!-- Content -->
+<div class="content">
 
     <div class="container px-4 py-5">
-      <h2 class="pb-2 border-bottom">Projects</h2>
+        <h2 class="pb-2 border-bottom header-text-color">Projects</h2>
 
-      <div class="row mb-2 py-4">
+        <div class="row mb-2 py-4">
 
-        {% for project in project_list %}
-          <div class="col-md-6">
-            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-              <div class="col p-4 d-flex flex-column position-static project-box">
-                <strong class="d-inline-block mb-2 accent-text">{{ project_data[project]["project_metadata"]["category"] }}</strong>
-                <h3 class="mb-0">{{ project_data[project]["project_metadata"]["title"] }}</h3>
-                <div class="mb-1 text-muted fs-6">{{ project_data[project]["project_metadata"]["publish_month_year"] }}</div>
-                <p class="card-text mt-2 mb-4 lh-sm">{{ project_data[project]["project_metadata"]["project_summary"] }}</p>
-                <!-- <p class="mb-1">&nbsp;</p> -->
+            {% for project in project_list %}
+            <div class="col-md-6">
+                <div
+                    class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static project-box">
+                        <strong class="d-inline-block mb-2 accent-text">{{
+                            project_data[project]["project_metadata"]["category"] }}</strong>
+                        <h3 class="mb-0 header-text-color">{{ project_data[project]["project_metadata"]["title"] }}</h3>
+                        <div class="mb-1 text-muted fs-6">{{
+                            project_data[project]["project_metadata"]["publish_month_year"] }}</div>
+                        <p class="card-text mt-2 mb-4 lh-sm">{{
+                            project_data[project]["project_metadata"]["project_summary"] }}</p>
+                        <!-- <p class="mb-1">&nbsp;</p> -->
 
-                {% if project_data[project]["project_metadata"]["status"] == 'Active' %}
+                        {% if project_data[project]["project_metadata"]["status"] == 'Active' %}
 
-                  {% if project_data[project]["project_metadata"]["medium_link"] %}
-                    <a href="{{ project_data[project]['project_metadata']['medium_link'] }}" target="_blank" class="accent-text icon-link gap-1 icon-link-hover stretched-link">
-                      <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
-                        <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                        <path fill="#fff" d="M180.5 74.3C80.8 74.3 0 155.6 0 256S80.8 437.7 180.5 437.7 361 356.4 361 256 280.2 74.3 180.5 74.3zm288.3 10.6c-49.8 0-90.2 76.6-90.2 171.1s40.4 171.1 90.3 171.1 90.3-76.6 90.3-171.1H559C559 161.5 518.6 84.9 468.8 84.9zm139.5 17.8c-17.5 0-31.7 68.6-31.7 153.3s14.2 153.3 31.7 153.3S640 340.6 640 256C640 171.4 625.8 102.7 608.3 102.7z"/>
-                      </svg>
-                      <p></p>
-                      View on Medium
-                      <svg class="bi"><use xlink:href="#chevron-right"/></svg>
-                    </a>
-                  {% else %}
-                    <a href="/projects/{{ project }}" class="accent-text icon-link gap-1 icon-link-hover stretched-link">
-                      Continue reading
-                      <svg class="bi"><use xlink:href="#chevron-right"/></svg>
-                    </a>
-                  {% endif %}
+                        {% if project_data[project]["project_metadata"]["medium_link"] %}
+                        <a href="{{ project_data[project]['project_metadata']['medium_link'] }}" target="_blank"
+                            class="accent-text icon-link gap-1 icon-link-hover stretched-link">
+                            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                                <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                                <path fill="#fff"
+                                    d="M180.5 74.3C80.8 74.3 0 155.6 0 256S80.8 437.7 180.5 437.7 361 356.4 361 256 280.2 74.3 180.5 74.3zm288.3 10.6c-49.8 0-90.2 76.6-90.2 171.1s40.4 171.1 90.3 171.1 90.3-76.6 90.3-171.1H559C559 161.5 518.6 84.9 468.8 84.9zm139.5 17.8c-17.5 0-31.7 68.6-31.7 153.3s14.2 153.3 31.7 153.3S640 340.6 640 256C640 171.4 625.8 102.7 608.3 102.7z" />
+                            </svg>
+                            <p></p>
+                            View on Medium
+                            <span class="ps-1 material-symbols-outlined">
+                                open_in_new
+                            </span>
+                        </a>
+                        {% else %}
+                        <a href="/projects/{{ project }}"
+                            class="accent-text icon-link gap-1 icon-link-hover stretched-link">
+                            Continue reading
+                            <svg class="bi">
+                                <use xlink:href="#chevron-right" />
+                            </svg>
+                        </a>
+                        {% endif %}
 
-                {% else %}
-                <a href="#" class="accent-text icon-link gap-1 icon-link-hover stretched-link">
-                  Coming soon
-                </a>
-                {% endif %}
+                        {% else %}
+                        <a href="#" class="accent-text icon-link gap-1 icon-link-hover stretched-link">
+                            Coming soon
+                        </a>
+                        {% endif %}
 
-              </div>
-              <div class="col-auto d-block d-lg-block">
-                <img style="object-fit: cover; width: 100px; height: 100%;" src="{{ project_data[project]['project_image'] }}"/>
-              </div>
+                    </div>
+                    <div class="col-auto d-block d-lg-block">
+                        <img style="object-fit: cover; width: 100px; height: 100%;"
+                            src="{{ project_data[project]['project_image'] }}" />
+                    </div>
+                </div>
             </div>
-          </div>
-        {% endfor %}
+            {% endfor %}
 
-      </div>
+        </div>
     </div>
-  </div>
+</div>
 {% endblock content %}

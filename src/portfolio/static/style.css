@@ -1,6 +1,7 @@
 :root {
   --static-bg-color: #1a1a2e; /* Overall background color */ /* #1E1D2A, 1a1a2e 14102C */
-  --main-text-color: #FFF; /* Primary text color e0e0e0*/
+  --main-text-header-color: #FFF; /* Primary text header color e0e0e0*/
+  --main-text-body-color: #adb5bd; /* Primary text body color e0e0e0*/
   --accent-text-color: #8787BB; /* Accent text color - #6F6B98 c9c8c7 ffc107  9d4edd*/
   --link-hover-color: #6F6B98; /* Link hover color - rgba(255, 255, 255, 0.05) #c9c8c7 00bcd4*/
   --project-card-bg-color: rgba(255, 255, 255, 0.05); /* Project box color */
@@ -18,6 +19,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     background: var(--static-bg-color);
+    color: var(--main-text-body-color);
 }
 body .content {
     flex: 1;
@@ -34,7 +36,18 @@ p {
 .accent-text-color {
     color: var(--accent-text-color);
 }
-
+.header-text-color {
+    color: var(--main-text-header-color)
+}
+code {
+    border-radius:8px;
+}
+pre code {
+    font-size: 0.8rem;
+}
+/* .language-python {
+    font-size: 0.8rem;
+} */
 
 
 /* Footer */
@@ -115,10 +128,15 @@ figure {
   text-align: center;
 }
 figcaption {
-  margin-bottom: 1rem;
-  font-size: 0.9rem;
+  margin-top: .5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.7rem;
   font-style: italic;
   color: #FFF;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 .blog-post {
     margin-bottom: 4rem;
@@ -138,7 +156,7 @@ figcaption {
     font-weight: bold;
 }
 .markdown-project-content img {
-    max-width: 80%;
+    max-width: 95%;
     max-height: 100%;
     height: auto;
     display: block;
