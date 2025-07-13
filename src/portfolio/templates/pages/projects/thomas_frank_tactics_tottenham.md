@@ -257,7 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ## mlpsoccer
 
-mlpsoccer is a wrapper on top of matplot and integrates very well with a python workflow. Once the data is organized with opponent position added to a team's fixture data with formations, the python code below will generate the plot used for Figure 6 above.
+mlpsoccer is a wrapper on top of matplotlib and integrates very well with a python workflow. Once the data is organized with opponent position added to a team's fixture data with formations, the python code below will generate the plot used for Figure 6 above.
 
 
 ```python
